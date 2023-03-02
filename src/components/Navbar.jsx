@@ -10,6 +10,13 @@ function Navbar() {
     const navigate = useNavigate()
     const location = useLocation()
 
+    const checkMatchPath = (route) => {
+
+        if(route === location.pathname){
+            return true
+        }
+    }
+
 
 
   return (
@@ -17,16 +24,16 @@ function Navbar() {
         <nav className="navbarNav">
             <ul className="navbarListItems">
                 <li className="navbarListItem">
-                    <ExploreIcon fill='#2c2c2c' width='36px' height='36px' onClick={() => navigate('/')} />
-                    <p>Explore</p>
+                    <ExploreIcon fill={`${checkMatchPath('/') ? '#2c2c2c' : '#8f8f8f'}`} width='36px' height='36px' onClick={() => navigate('/')} />
+                    <p className={checkMatchPath('/') ? 'navbarListItemNameActive' : 'navbarListItemName'}>Explore</p>
                 </li>
                 <li className="navbarListItem">
-                    <OfferIcon fill='#2c2c2c' width='36px' height='36px' onClick={() => navigate('/offers')} />
-                    <p>Offers</p>
+                    <OfferIcon fill={`${checkMatchPath('/offers') ? '#2c2c2c' : '#8f8f8f'}`} width='36px' height='36px' onClick={() => navigate('/offers')} />
+                    <p className={checkMatchPath('/offers') ? 'navbarListItemNameActive' : 'navbarListItemName'}>Offers</p>
                 </li>
                 <li className="navbarListItem">
-                    <PersonOutlineIcon fill='#2c2c2c' width='36px' height='36px' onClick={() => navigate('/profile')} />
-                    <p>Profile</p>
+                    <PersonOutlineIcon fill={`${checkMatchPath('/profile') ? '#2c2c2c' : '#8f8f8f'}`} width='36px' height='36px' onClick={() => navigate('/profile')} />
+                    <p className={checkMatchPath('/profile') ? 'navbarListItemNameActive' : 'navbarListItemName'}>Profile</p>
                 </li>
             </ul>
         </nav>
