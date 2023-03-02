@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 import Explore from './Pages/Explore'
 import ForgetPassword from './Pages/ForgetPassword'
 import NotFound from './Pages/NotFound'
@@ -24,6 +25,7 @@ function App() {
         <Route path='forget-password' element={<ForgetPassword />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
+      <Navbar />
     </Router>
 
     </>
